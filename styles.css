@@ -1,0 +1,79 @@
+/* Basic smooth-scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reusable cards (non-Tailwind extras) */
+.benefit-card,
+.case-card,
+.persona-card,
+.faq-item {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: radial-gradient(circle at top left, rgba(134, 217, 245, 0.09), transparent 55%),
+              rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(16px);
+}
+
+.case-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.case-image {
+  max-height: 170px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* FAQ */
+.faq-item {
+  padding: 1rem 1.25rem;
+}
+.faq-item dt {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.faq-item dd {
+  font-size: 0.875rem;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+/* Nav link hover treatment */
+.nav-link {
+  position: relative;
+  padding-bottom: 0.15rem;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  height: 1px;
+  width: 0;
+  background: linear-gradient(90deg, #86D9F5, #FB6CAA);
+  transition: width 0.2s ease-out;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link-mobile {
+  padding: 0.25rem 0;
+}
+
+/* Simple fade-in on load (optional) */
+@keyframes nova-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  animation: nova-fade-up 0.5s ease-out;
+}
